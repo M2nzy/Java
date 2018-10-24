@@ -1,3 +1,4 @@
+package oct16;
 
 public class FloatAverage {
 

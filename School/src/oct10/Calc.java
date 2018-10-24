@@ -1,3 +1,4 @@
+package oct10;
 
 class AddSubCalc {
 	int Add(int x, int y) {
@@ -21,10 +22,10 @@ class FourCalc extends AddSubCalc {
 
 }
 
-public class Calc extends FourCalc {
+public class Calc {
 	
 	public static void main(String args[]) {
-		Calc calc = new Calc();
+		FourCalc calc = new FourCalc();
 		int x = 10, y = 5;
 		
 		System.out.println("Add : " + calc.Add(x, y));

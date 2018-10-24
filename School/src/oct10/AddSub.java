@@ -1,3 +1,4 @@
+package oct10;
 class AddFish {
 	int c;
 
