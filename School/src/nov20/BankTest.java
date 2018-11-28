@@ -1,6 +1,6 @@
 package nov20;
 
-class BankAccount {
+abstract class BankAccount {
 
 	String AccountNum;
 	String name;
@@ -39,7 +39,7 @@ class CardBankAccount extends BankAccount {
 
 	void pay(String cardNo, int money) throws Exception {
 
-		if (this.cardNo.equals(cardNo) || this.money >= money) {
+		if (this.cardNo.equals(cardNo) && this.money >= money) {
 			this.DelMoney(money);
 		}
 
@@ -74,11 +74,28 @@ class MinusBankAccount extends BankAccount {
 
 }
 
+class BonusPointAccount extends BankAccount {
+
+	double point;
+
+	BonusPointAccount(String AccountNum, String name, int money) {
+		super(AccountNum, name, money);
+		this.point = 0;
+	}
+
+	void InsertMoney(int money) {
+		super.InsertMoney(money);
+		this.point += (money * 0.001);
+	}
+
+}
+
 public class BankTest {
 	public static void main(String args[]) {
 
 		CardBankAccount p1 = new CardBankAccount("111-22", "Gil Dong Hong", "555-666", 0);
 		MinusBankAccount p2 = new MinusBankAccount("000-11", "Seon Dal Kim", 10, 2000);
+		BonusPointAccount p3 = new BonusPointAccount("333-33", "Mi Young Kim", 0);
 
 		try {
 
@@ -96,6 +113,12 @@ public class BankTest {
 			System.out.println("Pay : " + minuspay);
 			System.out.println("Money : " + p2.money);
 			System.out.println("Minus : " + p2.minus);
+			System.out.println("");
+
+			System.out.println("***** Mi Young Kim *****");
+			p3.InsertMoney(1000000);
+			System.out.println("Money : " + p3.money);
+			System.out.println("Point : " + p3.point);
 
 		} catch (Exception e) {
 
