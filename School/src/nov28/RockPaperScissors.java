@@ -13,7 +13,7 @@ public class RockPaperScissors {
 	JPanel panel;
 	Container contentPane;
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		RockPaperScissors Example = new RockPaperScissors();
 		Example.GUI();
 	}
@@ -96,11 +96,13 @@ class EventHandler implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()) {
-		case "가위": {
-			Random random = new Random();
-			int npc = random.nextInt(3);
 
+		Random random = new Random();
+		int npc = random.nextInt(3);
+
+		switch (e.getActionCommand()) {
+
+		case "가위":
 			switch (npc) {
 			case 0:
 				label.setText("사용자 : 가위 " + "상대방 : 가위 " + "무승부!");
@@ -113,12 +115,8 @@ class EventHandler implements ActionListener {
 				break;
 			}
 			break;
-		}
 
-		case "바위": {
-			Random random = new Random();
-			int npc = random.nextInt(3);
-
+		case "바위":
 			switch (npc) {
 			case 0:
 				label.setText("사용자 : 바위 " + "상대방 : 가위 " + "사용자 승!");
@@ -131,12 +129,8 @@ class EventHandler implements ActionListener {
 				break;
 			}
 			break;
-		}
 
-		case "보": {
-			Random random = new Random();
-			int npc = random.nextInt(3);
-
+		case "보":
 			switch (npc) {
 			case 0:
 				label.setText("사용자 : 보 " + "상대방 : 가위 " + "상대방 승!");
@@ -149,8 +143,9 @@ class EventHandler implements ActionListener {
 				break;
 			}
 			break;
+
 		}
-		}
+
 	}
 
 }

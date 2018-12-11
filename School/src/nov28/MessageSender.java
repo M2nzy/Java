@@ -1,22 +1,15 @@
 package nov28;
 
-abstract class Message {
+public abstract class MessageSender {
 
-	String title, sendName;
+	protected String title;
+	protected String sendName;
 
-	Message(String title, String sendName) {
+	protected MessageSender(String title, String sendName) {
 		this.title = title;
 		this.sendName = sendName;
 	}
 
-	abstract void send(String recipnt);
-
-}
-
-public class MessageSender {
-
-	public static void main(String[] args) {
-
-	}
+	public abstract void sendMsg(String recipnt);
 
 }
